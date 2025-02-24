@@ -17,3 +17,26 @@ function getComputerChoice(){
 }
 
 
+
+function getHumanChoice(){
+
+    let humanChoice = prompt("Enter Your Choice!");
+
+    if(humanChoice == "Rock" || humanChoice == "rock"){
+        return "Rock";
+    }
+
+    else if(humanChoice == "Paper" || humanChoice == "paper"){
+        return "Paper"
+    }
+
+    else if(humanChoice == "Scissors" || humanChoice == 'scissors'){
+        return "Scissors"
+    }
+
+    else{
+        return "Invalid Option, Try Again";
+    }    
+}
+
+
