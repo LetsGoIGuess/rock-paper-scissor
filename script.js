@@ -1,4 +1,8 @@
 
+let humanScore = 0;
+let computerScore = 0;
+
+
 function getComputerChoice(){
 
     let computerChoice = Math.round(Math.random() * (3 - 1) + 1);
@@ -35,8 +39,32 @@ function getHumanChoice(){
     }
 
     else{
-        return "Invalid Option, Try Again";
+        return -1;
     }    
 }
 
+
+function playRound(humanChoice, computerChoice){
+
+    //if both choices are the same
+    if(humanChoice == computerChoice){
+        console.log("Tie");
+    }
+
+    //conditions for human winning
+    if((humanChoice == "Rock" && computerChoice == "Scissors") || (humanChoice == "Paper" && computerChoice == "Rock") || (humanChoice == "Scissors" && computerChoice == "Paper")){
+        console.log("You Win!");
+        humanScore += 1;
+    }
+
+    //conditions for computer winning
+    if((humanChoice == "Rock" && computerChoice == "Paper") || (humanChoice == "Paper" && computerChoice == "Scissors") || (humanChoice == "Scissors" && computerChoice == "Rock")){
+        console.log("You Lose!");
+        computerScore += 1;
+    }
+
+    if(humanChoice == -1){
+        console.log("Invalid Choice, Try Again");
+    }
+}
 
