@@ -46,6 +46,7 @@ function getHumanChoice(){
 
 function playRound(humanChoice, computerChoice){
 
+
     //if both choices are the same
     if(humanChoice == computerChoice){
         console.log("Tie");
@@ -68,3 +69,63 @@ function playRound(humanChoice, computerChoice){
     }
 }
 
+
+
+
+function playGame(){
+
+    console.log("Welcome to a game of rock, paper, scissors. You will be playing against the Computer.");
+    console.log("You will play five rounds for a best of 3 each round. Good Luck!");
+
+    let round = 1;
+
+
+    console.log(`Round #${round}`);
+
+    while(round < 6){
+
+
+
+        //if human wins a round
+        if(humanScore == 3){
+
+            if(round+1 == 6){
+                console.log("Thank You For Playing!");
+                break;
+            }
+
+
+            console.log("You Have Won The Round! Get Ready For the Next");
+            humanScore = 0;
+            computerScore = 0;
+            round++;
+            console.log(`Round #${round}`);
+        }
+
+
+        //if computer wins a round
+        if(computerScore == 3){
+
+            if(round+1 == 6){
+                console.log("Thank You For Playing");
+                break;
+            }
+
+            console.log("You Have Lost The Round! Get Ready For the Next");
+            humanScore = 0;
+            computerScore = 0;
+            round++;
+            console.log(`Round #${round}`);
+        }
+
+
+        console.log(humanScore);
+        console.log(computerScore);
+
+        playRound(getHumanChoice(), getComputerChoice());
+    }
+}
+
+
+
+playGame();
