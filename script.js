@@ -24,7 +24,7 @@ function getComputerChoice(){
 
 function getHumanChoice(){
 
-    let humanChoice = prompt("Enter Your Choice!");
+    let humanChoice = prompt("Enter \"Rock\", \"Paper\", or \"Scissors\"");
 
     if(humanChoice == "Rock" || humanChoice == "rock"){
         return "Rock";
