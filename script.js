@@ -1,40 +1,83 @@
 
+//Variables
+
 let humanScore = 0;
 let computerScore = 0;
+let round = 1;
 
 
+// variables for the buttons
+let rockButton = document.querySelector("#rock-button");
+let paperButton = document.querySelector("#paper-button");
+let scissorsButton = document.querySelector("#scissors-button");
+
+
+
+//variables for the gamescreen
+let humanPick = document.querySelector("#your-choice");
+let compPick = document.querySelector("#comp-choice");
+let outcome = document.querySelector("#your-outcome");
+
+
+//variables for gamescore
+let roundNumb = document.querySelector("#round-number");
+let userScore = document.querySelector("#user-score");
+let compScore = document.querySelector("#comp-score");
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+//computer choice
 function getComputerChoice(){
 
     let computerChoice = Math.round(Math.random() * (3 - 1) + 1);
 
     if(computerChoice == 1){
+        compPick.textContent = "Rock";
         return "Rock";
     }
 
     else if(computerChoice == 2){
+        compPick.textContent = "Paper";
         return "Paper";
     }
 
     else{
+        compPick.textContent = "Scissors";
         return "Scissors";
     }
 }
 
 
 
-function getHumanChoice(){
+// human choice
+function getHumanChoice(choice){
 
-    let humanChoice = prompt("Enter \"Rock\", \"Paper\", or \"Scissors\"");
 
-    if(humanChoice == "Rock" || humanChoice == "rock"){
+    if(choice == 1){
+        humanPick.textContent = "Rock";
         return "Rock";
     }
 
-    else if(humanChoice == "Paper" || humanChoice == "paper"){
+    else if(choice == 2){
+        humanPick.textContent = "Paper";
         return "Paper"
     }
 
-    else if(humanChoice == "Scissors" || humanChoice == 'scissors'){
+    else if(choice == 3){
+        humanPick.textContent = "Scissors";
         return "Scissors"
     }
 
@@ -44,28 +87,37 @@ function getHumanChoice(){
 }
 
 
+
+
+
+
+
+
+
+
 function playRound(humanChoice, computerChoice){
 
 
     //if both choices are the same
     if(humanChoice == computerChoice){
-        console.log("Tie");
+        outcome.textContent = "Tie";
+        return "Tie"
     }
 
     //conditions for human winning
     if((humanChoice == "Rock" && computerChoice == "Scissors") || (humanChoice == "Paper" && computerChoice == "Rock") || (humanChoice == "Scissors" && computerChoice == "Paper")){
-        console.log("You Win!");
         humanScore += 1;
+        userScore.textContent = humanScore;
+        outcome.textContent = "Win!";
+        return "Win"
     }
 
     //conditions for computer winning
     if((humanChoice == "Rock" && computerChoice == "Paper") || (humanChoice == "Paper" && computerChoice == "Scissors") || (humanChoice == "Scissors" && computerChoice == "Rock")){
-        console.log("You Lose!");
         computerScore += 1;
-    }
-
-    if(humanChoice == -1){
-        console.log("Invalid Choice, Try Again");
+        compScore.textContent = computerScore;
+        outcome.textContent = "Lose!";
+        return "Lose";
     }
 }
 
@@ -74,57 +126,32 @@ function playRound(humanChoice, computerChoice){
 
 function playGame(){
 
-    console.log("Welcome to a game of rock, paper, scissors. You will be playing against the Computer.");
-    console.log("You will play five rounds for a best of 3 each round. Good Luck!");
+    roundNumb.textContent = round;
 
-    let round = 1;
-
-
-    console.log(`Round #${round}`);
-
-    while(round < 6){
+    userScore.textContent = humanScore;
+    compScore.textContent = computerScore;
 
 
-
-        //if human wins a round
-        if(humanScore == 3){
-
-            if(round+1 == 6){
-                console.log("Thank You For Playing!");
-                break;
-            }
+    rockButton.addEventListener('click', function(){        
+        playRound(getHumanChoice(1),getComputerChoice());
+    });
 
 
-            console.log("You Have Won The Round! Get Ready For the Next");
-            humanScore = 0;
-            computerScore = 0;
-            round++;
-            console.log(`Round #${round}`);
-        }
+
+    paperButton.addEventListener('click', function(){
+        playRound(getHumanChoice(2),getComputerChoice());
+    });
 
 
-        //if computer wins a round
-        if(computerScore == 3){
-
-            if(round+1 == 6){
-                console.log("Thank You For Playing");
-                break;
-            }
-
-            console.log("You Have Lost The Round! Get Ready For the Next");
-            humanScore = 0;
-            computerScore = 0;
-            round++;
-            console.log(`Round #${round}`);
-        }
+    scissorsButton.addEventListener('click', function(){
+        playRound(getHumanChoice(3),getComputerChoice());
+    });
 
 
-        console.log(humanScore);
-        console.log(computerScore);
 
-        playRound(getHumanChoice(), getComputerChoice());
-    }
+    
 }
+
 
 
 
