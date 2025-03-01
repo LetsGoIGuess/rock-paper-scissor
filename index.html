@@ -5,9 +5,84 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Rock Paper Scissors</title>
     <link rel="stylesheet" href="style.css">
-    <script src="script.js"></script>
+    <script src="script.js" defer></script>
 </head>
 <body>
+
+
+    <header>
+        <h1>Rock Paper Scissors</h1>
+    </header>
+
+
+
     
+    <div class="main-box">
+
+
+        <!-- GAME ROUND UPDATE AND BUTTONS-->
+
+
+
+        <div class="main-box-screen-left">
+
+            <div class="main-box-screen-left-update">
+
+
+                <div class="update-text">
+
+                    <p>You Choose: <span id="your-choice"></span></p>
+                    <p>Computer Choose: <span id="comp-choice"></span> </p>
+                    <p>You <span id="your-outcome"></span></p>
+
+                </div>
+
+            </div>
+
+
+
+            <div class="main-box-screen-left-buttons">
+
+                <button id="rock-button">ROCK</button>
+
+                <button id="paper-button">PAPER</button>
+
+                <button id="scissors-button">SCISSORS</button>
+
+            </div>
+
+        </div>
+
+
+
+
+
+        <!-- GAME SCORES-->
+
+
+        <div class="main-box-screen-right">
+            
+            <div class="right-round">
+
+                <h3>Round #<span id="round-number"></span></h3>
+
+            </div>
+
+
+            <div class="right-round-score">
+
+                <p>Your Score: <span id="user-score"></span></p>
+                <p>Computer Score: <span id="comp-score"></span></p>
+
+            </div>
+
+
+            <div class="space-box"></div>
+
+        </div>
+
+
+    </div>
+
 </body>
 </html>
