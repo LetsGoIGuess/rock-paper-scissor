@@ -1,42 +1,23 @@
-
 //Variables
-
 let humanScore = 0;
 let computerScore = 0;
 let round = 1;
-
 
 // variables for the buttons
 let rockButton = document.querySelector("#rock-button");
 let paperButton = document.querySelector("#paper-button");
 let scissorsButton = document.querySelector("#scissors-button");
-
-
+let but = document.querySelectorAll("button");
 
 //variables for the gamescreen
 let humanPick = document.querySelector("#your-choice");
 let compPick = document.querySelector("#comp-choice");
 let outcome = document.querySelector("#your-outcome");
 
-
 //variables for gamescore
 let roundNumb = document.querySelector("#round-number");
 let userScore = document.querySelector("#user-score");
 let compScore = document.querySelector("#comp-score");
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 //computer choice
@@ -87,18 +68,8 @@ function getHumanChoice(choice){
 }
 
 
-
-
-
-
-
-
-
-
 function playRound(humanChoice, computerChoice){
 
-
-    //if both choices are the same
     if(humanChoice == computerChoice){
         outcome.textContent = "Tie";
         return "Tie"
@@ -109,6 +80,17 @@ function playRound(humanChoice, computerChoice){
         humanScore += 1;
         userScore.textContent = humanScore;
         outcome.textContent = "Win!";
+
+        if(humanScore == 5){
+            userScore.style.color = "lightgreen";
+            for(i = 0; i < but.length; i++){
+                but[i].disabled = true;
+                but[i].style.backgroundColor = "rgb(19, 109, 136)";
+                but[i].style.cursor = "default";
+            }
+            alert("You Have Won The Game!");
+        }
+
         return "Win"
     }
 
@@ -117,11 +99,20 @@ function playRound(humanChoice, computerChoice){
         computerScore += 1;
         compScore.textContent = computerScore;
         outcome.textContent = "Lose!";
+
+        if(computerScore == 5){
+            userScore.style.color = "lightgreen";
+            for(i = 0; i < but.length; i++){
+                but[i].disabled = true;
+                but[i].style.backgroundColor = "rgb(19, 109, 136)";
+                but[i].style.cursor = "default";
+            }
+            alert("You Have Lost The Game!");
+        }
+
         return "Lose";
     }
 }
-
-
 
 
 function playGame(){
@@ -132,27 +123,22 @@ function playGame(){
     compScore.textContent = computerScore;
 
 
-    rockButton.addEventListener('click', function(){        
+    rockButton.addEventListener('click', function(){                
         playRound(getHumanChoice(1),getComputerChoice());
+
     });
-
-
-
+    
+    
+    
     paperButton.addEventListener('click', function(){
         playRound(getHumanChoice(2),getComputerChoice());
     });
-
-
+    
+    
     scissorsButton.addEventListener('click', function(){
         playRound(getHumanChoice(3),getComputerChoice());
-    });
-
-
-
-    
+    });    
 }
-
-
 
 
 playGame();
