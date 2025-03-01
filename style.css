@@ -1,0 +1,156 @@
+body{
+    margin: 0;
+    padding: 0;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    background-color: rgb(25, 50, 55);
+    font-size: 16px;
+}
+
+
+header{
+    background-color: rgb(48, 124, 201);
+    display: flex;
+    justify-content: center;
+}
+
+
+header h1{
+    font-size: 1.8rem;
+    color: white;
+}
+
+
+.main-box{
+    width: 70vw;
+    height: 70vh;
+    margin: auto;
+    margin-top: 10vh;
+    border: 5px solid;
+    border-radius: 5px;
+    display: flex;
+    box-sizing: border-box;
+}
+
+
+.main-box-screen-left{
+    width: 70%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    background-color: red;
+    box-sizing: border-box;
+    border-right: 3px solid black;
+
+}
+
+
+
+.main-box-screen-left-update{
+    width: 100%;
+    height: 70%;
+    background-color: rgb(74, 216, 244);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 30px;
+    position: relative;
+}
+
+
+.main-box-screen-left-update p{
+    font-size: 1.6rem;
+    font-weight: bold;
+}
+
+.update-text{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 30px;
+}
+
+
+
+/* Left Buttons Sections*/
+
+
+.main-box-screen-left-buttons{
+    width: 100%;
+    height: 30%;
+    display: flex;
+    flex: 1;
+}
+
+
+.main-box-screen-left-buttons button{
+    flex: 1;
+    flex-wrap: wrap;
+    font-size: 1.5rem;
+    font-weight: bold;
+    border: 0;
+    background-color: rgb(33, 170, 211);
+    color: white;
+    box-sizing: border-box;
+}
+
+
+.main-box-screen-left-buttons button:hover{
+    background-color: rgb(19, 109, 136);
+    cursor: pointer;
+}
+
+
+p{
+    margin: 0;
+}
+
+
+
+
+/* Right Score Screen */
+
+
+.main-box-screen-right{
+    background-color: rgb(48, 124, 201);
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 3vh;
+    position: relative;
+}
+
+
+.right-round{
+    background-color: rgb(9, 77, 166);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.5rem;
+    flex: 1;
+    max-height: 10vh;
+    color: white;
+}
+
+
+.right-round-score{
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    flex: 1;
+    background-color: rgb(9, 77, 166);
+    font-size: 1.5rem;
+    max-height: 35vh;
+    font-weight: bold;
+    color: white;
+    padding: 0 5%;
+}
+
+
+.space-box{
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 30%;
+}
